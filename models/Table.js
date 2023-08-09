@@ -2,9 +2,10 @@ import { Schema, model } from "mongoose";
 
 const tableSchema = new Schema(
   {
-    numberTable: {
-      type: Number,
+    nameTable: {
+      type: String,
       required: true,
+      unique: true,
       trim: true,
     },
     numberStarters: {

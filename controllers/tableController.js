@@ -3,10 +3,10 @@ import { Table } from "../models/Table.js";
 //REGISTRO DE MESA
 async function register(req, res, next) {
   try {
-    const { numberTable, numberStarters, status, area } = req.body;
+    const { nameTable, numberStarters, status, area } = req.body;
 
     const table = Table({
-      numberTable,
+      nameTable,
       numberStarters,
       status,
       area,
@@ -14,7 +14,7 @@ async function register(req, res, next) {
 
     const tableStored = await table.save();
 
-    res.status(201).send( "Agregada")
+    res.status(201).send("Agregada");
 
     console.log(tableStored);
   } catch (error) {
