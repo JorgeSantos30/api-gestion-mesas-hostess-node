@@ -5,6 +5,12 @@ async function register(req, res, next) {
   try {
     const { nameTable, numberStarters, status, area } = req.body;
 
+    const existingTable = await Table.findOne({ nameTable });
+
+    if (existingTable) {
+      return res.status(400).send("Ya existe una tabla con el mismo nombre.");
+    }
+
     const table = Table({
       nameTable,
       numberStarters,

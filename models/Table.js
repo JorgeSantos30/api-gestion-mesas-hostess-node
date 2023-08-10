@@ -11,7 +11,7 @@ const tableSchema = new Schema(
     numberStarters: {
       type: Number,
       required: true,
-      trim: true,
+      trim: true
     },
     status: {
       type: String,
