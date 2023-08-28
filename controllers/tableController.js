@@ -8,7 +8,7 @@ async function register(req, res, next) {
     const existingTable = await Table.findOne({ nameTable });
 
     if (existingTable) {
-      return res.status(400).send("Ya existe una tabla con el mismo nombre.");
+      return res.status(400).send("Ya existe una mesa con el mismo nombre.");
     }
 
     const table = Table({
@@ -20,7 +20,7 @@ async function register(req, res, next) {
 
     const tableStored = await table.save();
 
-    res.status(201).send("Agregada");
+    res.status(201).send("Mesa agregada");
 
     console.log(tableStored);
   } catch (error) {

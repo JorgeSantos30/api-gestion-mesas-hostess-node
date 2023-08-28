@@ -1,5 +1,6 @@
 import express from "express";
 import tableRoutes from "./routes/mesa.routes.js";
+import waitRoutes from "./routes/wait.routes.js"
 import cors from "cors";
 
 const app = express();
@@ -22,5 +23,7 @@ app.use(
 
 //ROUTES MIDDLEWARE
 app.use("/api/v1", tableRoutes);
+app.use("/api/v1", waitRoutes);
+
 
 export default app;
