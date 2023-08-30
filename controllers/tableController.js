@@ -60,4 +60,16 @@ async function getTable(req, res) {
   }
 }
 
-export { register, getTables, getTable };
+async function deleteTable(req, res) {
+  try {
+    const table = await Table.findByIdAndRemove(req.params.id);
+
+    if (!table) return res.status(404).json("La mesa no existe");
+
+    return res.json({ message: "La mesa se ha eliminado correctamente" });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export { register, getTables, getTable, deleteTable };

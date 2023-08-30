@@ -1,5 +1,6 @@
 import api from "./router.js";
 import {
+  deleteTable,
   getTable,
   getTables,
   register,
@@ -27,7 +28,9 @@ api.get("/get-table/:id", getTable);
  */
 
 /**
- * DELETE /api/v1/get-table/:id     ELIMINAR MESA
+ * DELETE /api/v1/deleteById/:id     ELIMINAR MESA
  */
+
+api.delete("/deleteById/:id", deleteTable);
 
 export default api;
