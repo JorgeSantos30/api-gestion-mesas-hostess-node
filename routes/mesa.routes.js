@@ -1,6 +1,7 @@
 import api from "./router.js";
 import {
   deleteTable,
+  editTable,
   getTable,
   getTables,
   register,
@@ -27,6 +28,7 @@ api.get("/get-table/:id", getTable);
  * PATCH/PUT /api/v1/get-table/:id    ACTUALIZAR MESA
  */
 
+api.patch("/edit-table/:id", editTable);
 /**
  * DELETE /api/v1/deleteById/:id     ELIMINAR MESA
  */

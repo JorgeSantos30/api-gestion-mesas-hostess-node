@@ -60,6 +60,10 @@ async function getTable(req, res) {
   }
 }
 
+/**
+ * ELIMINAR MESA
+ */
+
 async function deleteTable(req, res) {
   try {
     const table = await Table.findByIdAndRemove(req.params.id);
@@ -72,4 +76,25 @@ async function deleteTable(req, res) {
   }
 }
 
-export { register, getTables, getTable, deleteTable };
+async function editTable(req, res) {
+  try {
+    const { id } = await req.params;
+    const { nameTable, numberStarters, status, area } = req.body;
+
+    const table = await Table.findById(id);
+
+    if (!table) return res.status(404).json({ error: "No existe la tabla" });
+
+    table.nameTable = nameTable;
+    table.numberStarters = numberStarters;
+    table.status = status;
+    table.area = area;
+    await table.save();
+
+    return res.json({ table });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export { register, getTables, getTable, deleteTable, editTable };
